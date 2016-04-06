@@ -1,6 +1,0 @@
-EcommerceEntityMarca
- [x] Insert
- [x] Insert invalid
- [x] Update
- [x] Delete
-
