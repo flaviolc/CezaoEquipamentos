@@ -1,0 +1,10 @@
+AdminEntityAutenticacao
+ [ ] Insert
+ [ ] Insert invalid
+
+AdminEntityMarca
+ [ ] Insert
+ [ ] Insert invalid
+ [ ] Update
+ [ ] Delete
+

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Admin Test Suite" tests="6" assertions="0" failures="0" errors="6" time="2.939576">
+    <testsuite name="Admin\Entity\AutenticacaoTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" tests="2" assertions="0" failures="0" errors="2" time="1.159049">
+      <testcase name="testInsert" class="Admin\Entity\AutenticacaoTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" line="13" assertions="0" time="0.650346">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\AutenticacaoTest::testInsert
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE marca (id_marca INT NOT NULL, marca VARCHAR(255) NOT NULL, descricao_marca VARCHAR(255) NOT NULL, PRIMARY KEY(id_marca))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "marca" already exists' while executing DDL: CREATE TABLE marca (id_marca INT NOT NULL, marca VARCHAR(255) NOT NULL, descricao_marca VARCHAR(255) NOT NULL, PRIMARY KEY(id_marca))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+      <testcase name="testInsertInvalid" class="Admin\Entity\AutenticacaoTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" line="30" assertions="0" time="0.508703">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\AutenticacaoTest::testInsertInvalid
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "admin_autenticacao" already exists' while executing DDL: CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="Admin\Entity\MarcaTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/MarcaTest.php" tests="4" assertions="0" failures="0" errors="4" time="1.780527">
+      <testcase name="testInsert" class="Admin\Entity\MarcaTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/MarcaTest.php" line="13" assertions="0" time="0.429489">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\MarcaTest::testInsert
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "admin_autenticacao" already exists' while executing DDL: CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+      <testcase name="testInsertInvalid" class="Admin\Entity\MarcaTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/MarcaTest.php" line="32" assertions="0" time="0.439609">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\MarcaTest::testInsertInvalid
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "admin_autenticacao" already exists' while executing DDL: CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+      <testcase name="testUpdate" class="Admin\Entity\MarcaTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/MarcaTest.php" line="43" assertions="0" time="0.449189">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\MarcaTest::testUpdate
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "admin_autenticacao" already exists' while executing DDL: CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+      <testcase name="testDelete" class="Admin\Entity\MarcaTest" file="/home/maico/Documentos/aula php/skell_app/module/Admin/tests/src/Admin/Entity/MarcaTest.php" line="62" assertions="0" time="0.462240">
+        <error type="Doctrine\ORM\Tools\ToolsException">Admin\Entity\MarcaTest::testDelete
+Doctrine\ORM\Tools\ToolsException: Schema-Tool failed with Error 'An exception occurred while executing 'CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))':
+
+SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "admin_autenticacao" already exists' while executing DDL: CREATE TABLE admin_autenticacao (id_autenticacao INT NOT NULL, desc_tipo_autenticacao VARCHAR(255) NOT NULL, PRIMARY KEY(id_autenticacao))
+
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolsException.php:39
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/DBALException.php:116
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php:836
+/home/maico/Documentos/aula php/skell_app/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/SchemaTool.php:94
+/home/maico/Documentos/aula php/skell_app/module/Core/src/Core/Test/TestCase.php:101
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>
