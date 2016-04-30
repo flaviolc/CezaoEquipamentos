@@ -1,0 +1,30 @@
+<a href="/ecommerce/marcas/create"><input type="button" value="Nova Marca" title="Inserir nova marca."></a>	
+<br><br>
+
+<div class='panel panel-default'>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($marcas as $marca) {
+                ?>
+                <tr>
+                    <td><?= $marca->id; ?></td>
+                    <td><?= $marca->descricao; ?></td>
+
+                    <td><a href="/ecommerce/marcas/update/id/<?= $marca->id ?>">
+                            <input type='button' class="btn" value='Editar' title='Editar registro.'></a></td>
+
+                    <td><a href="/ecommerce/marcas/delete/id/<?= $marca->id ?>">
+                            <input type='button' class="btn" value='Excluir' title='Excluir registro.'></a></td>
+                </tr>
+
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

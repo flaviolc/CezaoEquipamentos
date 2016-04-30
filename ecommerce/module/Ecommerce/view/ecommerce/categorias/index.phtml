@@ -1,0 +1,22 @@
+<a href="/ecommerce/categorias/create">Nova categoria</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    foreach ($categorias as $categoria) {
+?>
+    <tr>
+        <td><?= $categoria->id; ?></td>
+        <td><?= $categoria->descricao; ?></td>
+        <td ><a href="/ecommerce/categorias/update/id/<?= $categoria->id ?>">Editar</a></td>
+        <td ><a href="/ecommerce/categorias/delete/id/<?= $categoria->id ?>">Excluir</a></td>
+    </tr>
+
+<?php } ?>
+    </tbody>
+</table>

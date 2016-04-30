@@ -1,0 +1,123 @@
+<?php
+/*
+ * @author Cezar Jr. Souza <cezar08@unochapeco.edu.br>
+ * 
+ * @params array $breadcrumbs, string $head, Zend/Form $form, array $tableIndex
+ * @retrun void 
+ * Template para gerar formulários
+ */
+?>
+
+<span class="breadcrumbs">
+    <a href="">Você está aqui: </a>
+    <!--Link de Breadcumbs-->
+
+    <?php
+    foreach ($this->breadcrumbs as $chave => $breadcrumb) {
+        ?>
+        <a href="<?php echo $breadcrumb['url']; ?>" title="<?php echo $breadcrumb['title']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <!--Divisor do Link de Breadcumbs-->
+        <?php if (end(array_keys($this->breadcrumbs)) != $chave) { ?>
+            <img src="/images/breadcrumbs.png" width="6" height="14" alt=">" />
+            <?php
+        }
+    }
+    ?>
+</span>
+
+<h2>   
+    <span><?php echo $this->head; ?></span>
+</h2>
+
+<br><br>
+<!-- Botão Inserir Novo --> 
+<div class="clearfix">
+    <div class="btns">
+        <a class="btn submit" href="<?php echo $this->newButton['href']; ?>" title="<?php echo $this->newButton['title']; ?>"><?php echo $this->newButton['text']; ?></a> 
+    </div>
+
+</div>  
+<?php
+echo $this->form()->openTag($this->formSearch);
+echo $this->formCollection($this->formSearch);
+echo $this->form()->closeTag($this->formSearch);
+?>
+<table class="datatable">
+    <!--
+Cabeçálho da tabela com os títulos.
+É nas celulas de título que se definem as larguras das colunas para
+formatar a tabela. Pode-se utilizar valor fixo ou porcentagem.
+Tanto para as celulas de títulos quanto para as de dados, pode-se
+definir a classe "center" para centralizar seu conteúdo.
+    -->
+    <thead>
+        <tr>
+            <?php foreach ($this->tableIndex as $th) { ?>
+                <th <?php echo $th['tableHead']['attribs']; ?>><?php echo $th['tableHead']['text']; ?></th>
+
+            <?php } ?>
+        </tr>
+    </thead>
+
+
+    <!--Dados da tabela-->
+    <tbody>
+        <?php
+        if (!$this->id_update) 
+            $this->id_update = 'id';
+        if(!$this->id_delete)
+            $this->id_delete = 'id';
+
+        foreach ($this->datePagination as $pagination) {
+            ?>
+            <tr>
+                <?php foreach ($this->tableIndex as $ti) {
+                    ?>
+
+                    <td><?php echo $pagination[$ti['collumn']['text']]; ?></td>
+    <?php } ?>
+                <td >
+
+                    <a href="<?php echo $this->urlUpdate . '/' . $this->id_update . '/' . $pagination[$this->id_update]; ?>" class="btn" title="Editar">
+                        <span class="ui-icon ui-icon-pencil"></span>
+                    </a>
+                    <a href="<?php echo $this->urlDelete . '/' . $this->id_delete . '/' . $pagination[$this->id_delete]; ?>" rel="confirmation" class="btn" title="Deseja realmente excluir este registro?">
+                        <span class="ui-icon ui-icon-circle-close"></span>
+                    </a>
+                </td>
+            </tr>
+<?php } ?>
+    </tbody>
+</table>
+
+<?php
+echo $this->paginationControl($this->datePagination, 'Sliding', '/partials/paginator/control.phtml');
+?>
+
+<div id="dialog" title="Confirmação" >
+
+</div>
+<script type="text/javascript">
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "Confirmar": function() {
+
+                $(location).attr('href', href_confirmation);
+            },
+            "Cancelar": function() {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $(".btn").on("click", function(e) {
+        if ($(this).attr('rel') == 'confirmation') {
+            $('#dialog').html($(this).attr('title'))
+            e.preventDefault();
+            href_confirmation = $(this).attr('href');
+            $("#dialog").dialog("open");
+        }
+    });
+</script>

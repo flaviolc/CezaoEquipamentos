@@ -1,0 +1,146 @@
+body {
+    background-image:url(img/fundo.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+    overflow-x:hidden;
+    overflow-y:hidden;
+ }
+
+#login_box {
+    position: relative;
+    margin: auto;
+    margin-top:10%;
+    width: 900px;
+    height: 500px;    
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 20px 20px;
+    border-bottom-left-radius: 20px 20px;
+}
+#cabecalho {
+    position: relative;
+    margin: auto;
+    width: 900px;
+    float:left;
+    background:#238E23;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-topleft: 20px;
+    border-top-right-radius: 20px 20px;
+    border-top-left-radius: 20px 20px;
+}
+#cabecalho h2{
+float:left;
+padding-left:35px;
+margin-bottom:0px;
+}
+
+#cabecalho img{
+float:right;
+padding-right:15px;
+}
+
+#imagem {
+    position:relative;
+    margin: auto;
+    border-left-width:5px;
+    border-left-style:solid;
+    border-left-color:#238E23;
+    width:545px;
+    height:402px;
+    float: left;
+}
+
+#imagem img{
+    width:535px;
+    height:402px;
+}
+
+#login {
+    position:relative;
+    margin: auto;
+    border-right-width:5px;
+    border-right-style:solid;
+    border-right-color:#238E23;
+    width:345px;
+    height:402px;
+    float: left;
+    background:LightGreen;
+}
+#login label{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin-right:5px;
+    margin-left:30px;
+    font-weight: bold;
+}
+#login h1{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    text-align:center;
+}
+
+#rodape {
+    position: relative;
+    margin: auto;
+    width: 900px;
+    height:35px;
+    float:left;
+    background:#238E23;    
+    -moz-border-radius-bottomright: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    border-bottom-right-radius: 20px 20px;
+    border-bottom-left-radius: 20px 20px;
+    text-align: center;
+}
+
+#rodape a{
+    font-size: 12px;
+    text-shadow: 0.1em 0.1em;
+    color: #333;
+    text-decoration:none;
+}
+
+#rodape a:hover {
+    font-size: 13px;
+}
+
+.entrar{
+    background: #1e4f8a;
+    width: 30%;
+    text-align: center;
+    top: 30px;
+    font-size: 18px;
+    color: #ebebeb;
+    border: #000 solid 1.8px;
+    -moz-border-radius: 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;  
+    left: -8.7%;
+    
+}
+.entrar:hover{
+    background: #6491ae;   
+}
+
+.usuario{
+    margin-left:10px;
+    position: relative;
+    width:150px
+}
+
+.senha{
+    margin-left:23px;
+    position: relative;
+    width:150px
+
+}
+#submit {
+    position: relative;
+    cursor: default;
+    float: right;
+    right: 25px;
+    top: 40px;
+}
+

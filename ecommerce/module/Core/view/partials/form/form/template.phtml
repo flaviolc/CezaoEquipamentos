@@ -1,0 +1,177 @@
+<?php
+/*
+ * @author Cezar Jr. Souza <cezar08@unochapeco.edu.br>
+ * 
+ * @params array $breadcrumbs, string $titlePage, Zend/Form $form, array $partialElements, string @help
+ * @retrun void 
+ * Template para gerar formulários
+ */
+?>
+<?php if($this->breadcrumbs){?>
+<span class="breadcrumbs">
+    <a href="">Você está aqui: </a>
+    <!--Link de Breadcumbs-->
+    <?php
+    $keys = array_keys($this->breadcrumbs);
+    $endKey = end($keys);
+    foreach ($this->breadcrumbs as $chave => $breadcrumb) {
+        ?>
+        <a href="<?php echo BASE_URL.$breadcrumb['url']; ?>" title="<?php echo $breadcrumb['title']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <!--Divisor do Link de Breadcumbs-->
+        <?php if ($endKey != $chave) { ?>
+            <img src="<?php echo BASE_URL ?>/images/breadcrumbs.png" width="6" height="9" alt=">" />
+            <?php
+        } else {
+            $utlBreadcrumb = $breadcrumb;
+        }
+    }
+    ?>
+</span>
+<?php }?>
+
+
+<h2>
+    <!--Título da Página-->
+    <span><?php echo $this->titlePage; ?></span>
+    <!--Link para o Help da página-->
+    <a href="#" onclick="showHelp();" title="Ajuda" class="help-system">?
+    </a>
+    <!--Link para marcar como favorito-->
+    <a href="#" onclick="bookmarked('<?php echo BASE_URL . $utlBreadcrumb["url"] ?>', '<?php echo $utlBreadcrumb["text"] ?>');"
+       class="bookmarked">&#9734;<span>&#9733;</span></a>
+
+</h2>
+
+
+
+<!--Texto para aparecer no help da página. Este texto é exibido apenas
+em modal quando clicado no link acima.-->
+
+<article class="help-system-text" title="Ajuda">
+    <p><?php echo $this->help; ?></p>
+</article>
+<br /><br />
+<?php if ($this->abas) { ?>
+    <div id="tabs-forms">
+
+        <ul>
+            <?php
+            foreach ($this->abas as $aba) {
+                ?>
+                <li id="<?php echo $aba['id']; ?>li"><a href="#" onclick="abas('#<?php echo $aba['id']; ?>')"><?php echo $aba['text'] ?></a></li>                
+                <?php
+            }
+            ?>
+        </ul>
+    </div>
+<?php } ?>
+
+<?php
+echo $this->form()->openTag($this->form);
+?>
+
+
+
+<fieldset id="fieldsetMaster">
+
+
+    <?php
+    if ($this->arrayHidden) {
+        foreach ($this->arrayHidden as $hidden) {
+            echo "<input type='hidden' name='vagas[]' value='$hidden' />";
+        }
+    }
+
+    $messageError = $this->form->getMessages();
+    $keys = array_keys($this->partialElements);
+    $endKey = end($keys);
+    foreach ($this->partialElements as $chave => $element) {
+        if ($endKey == $chave) {
+            $class = 'class="clearfix"';
+        } else {
+            $class = '';
+        }
+
+        if ($element['name'] != 'id') {
+            if (isset($element['id_div'])) {
+                $idDiv = "id='$element[id_div]'";
+            } else {
+                $idDiv = '';
+            }
+
+            if (isset($element['openFieldset']))
+                echo $element['openFieldset'];
+
+            if (isset($element['htmlElement']))
+                echo '<div>' . $element['htmlElement'] . '</div>';
+            ?>
+            <div <?php
+            echo $class;
+            echo $idDiv
+            ?>>
+                    <?php
+                    if ($element['label']) {
+                        echo $element['label'];
+                    }
+                    echo $element['input'];
+                    if (isset($messageError[$element['name']]))
+                        $messageErrorExib = array_pop($messageError[$element['name']]);
+                    if (isset($messageErrorExib))
+                        $classWarning = "ui-state-error ui-corner-all";
+                    else
+                        $classWarning = null;
+                    ?>
+                <result class="ui-widget">
+                    <div class="<?php echo $classWarning; ?>">
+                        <span class="warning-result">
+
+                        </span>
+                        <?php
+                        if (isset($messageErrorExib)){
+                            echo "   <img src='".BASE_URL."/images/exclamacao.jpg'>   " . $messageErrorExib;
+                            unset($messageErrorExib);
+                        }
+                        ?>
+                    </div>
+                </result>
+            </div>
+            <?php
+        }else {
+            echo $element['input'];
+        }
+
+        if (isset($element['information'])) {
+            ?>
+            <div>
+                <label for=""></label>
+                <span class="info clearfix"><?php echo $element['information']; ?></span>
+            </div>
+            <?php
+        }
+        ?>
+        <?php
+        if (isset($element['closeFieldset']))
+            echo $element['closeFieldset'];
+    }
+
+    $this->form->add(array(
+        'name' => 'security',
+        'type' => 'csrf'));
+
+    echo $this->formRow($this->form->get('security'));
+    ?>
+    <div class="actions clearfix">
+
+        <?php
+        if (array_key_exists('botao', $this->form->getElements()))
+            echo $this->formRow($this->form->get('botao'));
+        if (array_key_exists('cancelar', $this->form->getElements()))
+            echo $this->formButton($this->form->get('cancelar'));
+        ?>           
+    </div>
+</fieldset>
+<?php
+echo $this->form()->closeTag($this->form);
+?>
+
+
