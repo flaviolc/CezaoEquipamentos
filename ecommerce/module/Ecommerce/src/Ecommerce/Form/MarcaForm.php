@@ -10,7 +10,6 @@ use Zend\Form\Form;
  * @package form
  * @author Maico Baggio <maico.baggio@unochapeco.edu.br>
  */
-
 class MarcaForm extends Form {
 
     public function __construct() {
@@ -34,15 +33,14 @@ class MarcaForm extends Form {
                     ),
                 )
         );
-        $this->add(
-                array(
-                    'name' => 'Salvar',
-                    'type' => 'submit',
-                    'attributes' => array(
-                        'value' => 'Salvar'
-                    )
-                )
-        );
+        $this->add(array(
+            'name' => 'Salvar',
+            'type' => 'submit',
+            'attributes' => array(
+                'value' => 'Salvar',
+                'class' => 'btn btn-primary'
+            )
+        ));
     }
 
 }

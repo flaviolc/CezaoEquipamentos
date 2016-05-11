@@ -84,9 +84,6 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => Controller\IndexController::class,
-            'Admin\Controller\Categorias' => Controller\CategoriasController::class,
-            'Admin\Controller\Produtos' => Controller\ProdutosController::class,
-            'Admin\Controller\Marcas' => Controller\MarcasController::class,
         ),
     ),
     'view_manager' => array(

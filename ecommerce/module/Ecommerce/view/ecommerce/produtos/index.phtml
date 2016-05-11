@@ -5,10 +5,14 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Foto</th>
                 <th>Id</th>
-                <th>Marca</th>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Sub Categoria</th>
+                <th>Categoria</th>
                 <th>Valor</th>
                 <th>Margem de lucro</th>
             </tr>
@@ -18,21 +22,33 @@
             foreach ($produtos as $produto) {
                 ?>
                 <tr>
-                    <td><?= $produto->id; ?></td>
-                    <td><?= $produto->marca->descricao; ?></td>
+                    <td>
+                    <img class="img"  src="/img/photos_produtos/thumb/<?= $produto->url_photo  ?>" />
+                </td>
+                    <td><?= $produto->id_produto; ?></td>
                     <td><?= $produto->nome; ?></td>
                     <td><?= $produto->descricao; ?></td>
+                    <td><?= $produto->marca->descricao; ?></td>
+                    <td><?= $produto->modelo->descricao; ?></td>
+                    <td><?= $produto->subcategoria->descricao; ?></td>
+                    <td><?= $produto->categorias->descricao; ?></td>
                     <td><?= $produto->valor; ?></td>
                     <td><?= $produto->margem_de_lucro; ?></td>
 
-                    <td> <a href="/ecommerce/produtos/update/id/<?= $produto->id ?>">
+                    <td> <a href="/ecommerce/produtos/update/id/<?= $produto->id_produto ?>">
                             <span class="glyphicon glyphicon-pencil" title="Excluir registro"></span> </a></td>
 
-                    <td> <a href="/ecommerce/produtos/delete/id/<?= $produto->id ?>">
+                    <td> <a href="/ecommerce/produtos/delete/id/<?= $produto->id_produto ?>">
                             <span class="glyphicon glyphicon-trash" title="Editar registro"></span> </a></td>
                 </tr>
-
             <?php } ?>
         </tbody>
     </table>
 </div>
+<?php
+echo $this->paginationControl(
+        $produtos, 'sliding', 'partial/paginator.phtml', array(
+    'route' => 'produtos'
+        )
+);
+?>

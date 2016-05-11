@@ -12,7 +12,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @author Maico Baggio <maico.baggio@unochapeco.edu.br>
  */
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="produto")
@@ -24,9 +23,9 @@ class Produto {
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      *
-     * @var int $id
+     * @var int $id_produto
      */
-    protected $id;
+    protected $id_produto;
 
     /**
      * @ORM\Column(type="string")
@@ -41,6 +40,13 @@ class Produto {
      * @var string $descricao
      */
     protected $descricao;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @var string
+     */
+    protected $url_photo;
 
     /**
      * @ORM\Column(type="float")
@@ -58,17 +64,33 @@ class Produto {
 
     /**
      * @ORM\ManyToOne(targetEntity="Marca", inversedBy="produto")   
-     * @ORM\JoinColumn(name="id_marca", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_marca", referencedColumnName="id_marca")
      *
      * @var Marca $marca
      */
     protected $marca;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Modelo", inversedBy="produto")   
+     * @ORM\JoinColumn(name="id_modelo", referencedColumnName="id_modelo")
+     *
+     * @var Modelo $modelos
+     */
+    protected $modelo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SubCategoria", inversedBy="produto")   
+     * @ORM\JoinColumn(name="id_sub_categoria", referencedColumnName="id_sub_categoria")
+     *
+     * @var SubCategoria $subcategoria
+     */
+    protected $subcategoria;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Categoria")
      * @ORM\JoinTable(name="produto_categoria",
-     * joinColumns={@ORM\JoinColumn(name="id_produto", referencedColumnName="id")},
-     * inverseJoinColumns={@ORM\JoinColumn(name="id_categoria", referencedColumnName="id")}
+     * joinColumns={@ORM\JoinColumn(name="id_produto", referencedColumnName="id_produto")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="id_categoria", referencedColumnName="id_categoria")}
      *      )
      *
      * @var ArrayCollection $categorias

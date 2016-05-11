@@ -11,7 +11,7 @@ return array(
                     'port'     => '5432',
                     'user'     => 'postgres',
                     'password' => 'root',
-                    'dbname'   => 'loja',
+                    'dbname'   => 'teste',
                 )
             )
         ),

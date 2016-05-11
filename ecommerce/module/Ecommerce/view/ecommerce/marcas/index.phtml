@@ -14,17 +14,26 @@
             foreach ($marcas as $marca) {
                 ?>
                 <tr>
-                    <td><?= $marca->id; ?></td>
+                    <td><?= $marca->id_marca; ?></td>
                     <td><?= $marca->descricao; ?></td>
 
-                    <td><a href="/ecommerce/marcas/update/id/<?= $marca->id ?>">
-                            <input type='button' class="btn" value='Editar' title='Editar registro.'></a></td>
+                    <td> <a href="/ecommerce/marcas/update/id/<?= $marca->id_marca ?>">
+                            <span class="glyphicon glyphicon-pencil" title="Excluir registro"></span> </a></td>
 
-                    <td><a href="/ecommerce/marcas/delete/id/<?= $marca->id ?>">
-                            <input type='button' class="btn" value='Excluir' title='Excluir registro.'></a></td>
+                    <td> <a href="/ecommerce/marcas/delete/id/<?= $marca->id_marca ?>">
+                            <span class="glyphicon glyphicon-trash" title="Editar registro"></span> </a></td>
+
                 </tr>
 
             <?php } ?>
         </tbody>
     </table>
 </div>
+
+<?php
+echo $this->paginationControl(
+        $marcas, 'sliding', 'partial/paginator.phtml', array(
+    'route' => 'marcas'
+        )
+);
+?>

@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Model Categoria
+ * Entity SubCategoria
  * @category Ecommerce
  * @package Entity
  * @author Maico Baggio <maico.baggio@unochapeco.edu.br>
@@ -14,22 +14,22 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table (name = "categoria")
+ * @ORM\Table (name = "sub_categoria")
  *
- * @author  Cezar Junior de Souza <cezar08@unochapeco.edu.br
- * @category Admin
+ * @author  Maico.baggio <maico.baggio@unochapeco.edu.br
+ * @category Ecommerce
  * @package Entity
  */
-class Categoria
+class SubCategoria
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      *
-     * @var int id_categoria
+     * @var int
      */
-    protected $id_categoria;
+    protected $id_sub_categoria;
 
     /**
      * @ORM\Column(type="string")
@@ -38,9 +38,8 @@ class Categoria
      */
     protected $descricao;
 
-
     /**
-     * @ORM\OneToMany(targetEntity="Produto", mappedBy="categoria")
+     * @ORM\OneToMany(targetEntity="Produto", mappedBy="sub_categoria")
      *
      * @var ArrayCollection $produtos
      */
@@ -58,11 +57,11 @@ class Categoria
 
     public function __set($name, $value)
     {
-       $this->$name = $value;
+        $this->$name = $value;
     }
 
     public function __get($name)
     {
-       return $this->$name;
+        return $this->$name;
     }
 }

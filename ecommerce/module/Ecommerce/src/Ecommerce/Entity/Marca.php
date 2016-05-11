@@ -29,7 +29,7 @@ class Marca
      *
      * @var int
      */
-    protected $id;
+    protected $id_marca;
 
     /**
      * @ORM\Column(type="string")

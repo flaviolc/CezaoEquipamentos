@@ -7,6 +7,9 @@ use Ecommerce\Form\CategoriaForm;
 use Ecommerce\Validator\CategoriaValidator;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrineAdapter;
+use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
+use Zend\Paginator\Paginator;
 
 /**
  * Controlador para cadastrar novas marcas.
@@ -18,12 +21,38 @@ use Zend\View\Model\ViewModel;
 class CategoriasController extends AbstractActionController {
 
     public function indexAction() {
+
+        $page = (int) $_GET['page'];
         $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-        $categorias = $entityManager->getRepository('\Ecommerce\Entity\Categoria')->findAll();
+        $select = $entityManager->createQueryBuilder()
+                ->select('Categoria')
+                ->from('Ecommerce\Entity\Categoria', 'Categoria')
+                //->join('Post.user', 'User')
+                //->where('Post.published = ?1')
+                //->setParameter(1, true)
+                ->orderBy('Categoria.descricao', 'ASC');
+
+        $adapter = new DoctrineAdapter(new ORMPaginator($select));
+        $paginator = new Paginator($adapter);
+        $paginator->setDefaultItemCountPerPage(ItensPerPage);
+        //$paginator->setCache($this->sm->get('Cache'));
+        // $paginator->setCacheEnabled(true);
+
+        if ($page > 0)
+            $paginator->setCurrentPageNumber($page);
 
         return new ViewModel(
-                array('categorias' => $categorias)
+                array('categorias' => $paginator)
         );
+
+
+//        
+//        $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+//        $categorias = $entityManager->getRepository('\Ecommerce\Entity\Categoria')->findAll();
+//
+//        return new ViewModel(
+//                array('categorias' => $categorias)
+//        );
     }
 
     public function createAction() {
