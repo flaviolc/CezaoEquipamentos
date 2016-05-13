@@ -1,4 +1,4 @@
-<a href="/ecommerce/marcas/create"><input type="button" value="Nova Marca" title="Inserir nova marca."></a>	
+<a href="/ecommerce/tipo-enderecos/create"><input type="button" class="btn btn-primary" value="Novo tipo endereço" title="Inserir novo tipo de endereço."></a>	
 <br><br>
 
 <div class='panel panel-default'>
@@ -11,20 +11,18 @@
         </thead>
         <tbody>
             <?php
-            foreach ($marcas as $marca) {
+            foreach ($tipoEnderecos as $tipoEndereco) {
                 ?>
                 <tr>
-                    <td><?= $marca->id_marca; ?></td>
-                    <td><?= $marca->descricao; ?></td>
+                    <td><?= $tipoEndereco->id_tipo_endereco; ?></td>
+                    <td><?= $tipoEndereco->descricao; ?></td>
 
-                    <td> <a href="/ecommerce/marcas/update/id/<?= $marca->id_marca ?>">
+                    <td> <a href="/ecommerce/tipo-enderecos/update/id/<?= $tipoEndereco->id_tipo_endereco ?>">
                             <span class="glyphicon glyphicon-pencil" title="Excluir registro"></span> </a></td>
 
-                    <td> <a href="/ecommerce/marcas/delete/id/<?= $marca->id_marca ?>">
+                    <td> <a href="/ecommerce/tipo-enderecos/delete/id/<?= $tipoEndereco->id_tipo_endereco ?>">
                             <span class="glyphicon glyphicon-trash" title="Editar registro"></span> </a></td>
-
                 </tr>
-
             <?php } ?>
         </tbody>
     </table>
@@ -32,8 +30,8 @@
 
 <?php
 echo $this->paginationControl(
-        $marcas, 'sliding', 'partial/paginator.phtml', array(
-    'route' => 'marcas'
+        $tipoEnderecos, 'sliding', 'partial/paginator.phtml', array(
+    'route' => 'tipoEndereco'
         )
 );
 ?>

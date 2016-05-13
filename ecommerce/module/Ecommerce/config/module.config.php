@@ -98,6 +98,32 @@ return array(
                     ),
                 ),
             ),
+            'tipoEndereco' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/ecommerce/tipo-enderecos/index[page/:page]',
+                    //'route' => '/ecommerce/marcas/',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Ecommerce\Controller',
+                        'controller' => 'TipoEnderecos',
+                        'action' => 'index',
+                        'page' => 1,
+                    ),
+                ),
+            ),
+            'subCategoria' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/ecommerce/sub-categorias/index[page/:page]',
+                    //'route' => '/ecommerce/marcas/',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Ecommerce\Controller',
+                        'controller' => 'SubCategorias',
+                        'action' => 'index',
+                        'page' => 1,
+                    ),
+                ),
+            ),
         ),
     ),
     'doctrine' => array(
@@ -137,6 +163,9 @@ return array(
             'Ecommerce\Controller\Categorias' => Controller\CategoriasController::class,
             'Ecommerce\Controller\Produtos' => Controller\ProdutosController::class,
             'Ecommerce\Controller\Marcas' => Controller\MarcasController::class,
+            'Ecommerce\Controller\TipoEnderecos' => Controller\TipoEnderecosController::class,
+            'Ecommerce\Controller\SubCategorias' => Controller\SubCategoriasController::class,
+            'Ecommerce\Controller\Enderecos' => Controller\EnderecosController::class,
         ),
     ),
     'view_manager' => array(

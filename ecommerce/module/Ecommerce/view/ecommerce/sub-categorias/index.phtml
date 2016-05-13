@@ -1,4 +1,4 @@
-<a href="/ecommerce/marcas/create"><input type="button" value="Nova Marca" title="Inserir nova marca."></a>	
+<a href="/ecommerce/sub-categorias/create"><input type="button" class="btn btn-primary" value="Nova subcategoria" title="Inserir uma nova subcategoria."></a>	
 <br><br>
 
 <div class='panel panel-default'>
@@ -11,20 +11,18 @@
         </thead>
         <tbody>
             <?php
-            foreach ($marcas as $marca) {
+            foreach ($subCategorias as $subCategoria) {
                 ?>
                 <tr>
-                    <td><?= $marca->id_marca; ?></td>
-                    <td><?= $marca->descricao; ?></td>
+                    <td><?= $subCategoria->id_sub_categoria; ?></td>
+                    <td><?= $subCategoria->descricao; ?></td>
 
-                    <td> <a href="/ecommerce/marcas/update/id/<?= $marca->id_marca ?>">
+                    <td> <a href="/ecommerce/sub-categorias/update/id/<?= $subCategoria->id_sub_categoria ?>">
                             <span class="glyphicon glyphicon-pencil" title="Excluir registro"></span> </a></td>
 
-                    <td> <a href="/ecommerce/marcas/delete/id/<?= $marca->id_marca ?>">
+                    <td> <a href="/ecommerce/sub-categorias/delete/id/<?= $subCategoria->id_sub_categoria ?>">
                             <span class="glyphicon glyphicon-trash" title="Editar registro"></span> </a></td>
-
                 </tr>
-
             <?php } ?>
         </tbody>
     </table>
@@ -32,8 +30,8 @@
 
 <?php
 echo $this->paginationControl(
-        $marcas, 'sliding', 'partial/paginator.phtml', array(
-    'route' => 'marcas'
+        $subCategorias, 'sliding', 'partial/paginator.phtml', array(
+    'route' => 'subCategoria'
         )
 );
 ?>
