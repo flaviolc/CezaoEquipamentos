@@ -1,0 +1,39 @@
+<a href="/ecommerce/marcas/create"><input type="button" value="Nova Marca" title="Inserir nova marca."></a>	
+<br><br>
+
+<div class='panel panel-default'>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($marcas as $marca) {
+                ?>
+                <tr>
+                    <td><?= $marca->id_marca; ?></td>
+                    <td><?= $marca->descricao; ?></td>
+
+                    <td> <a href="/ecommerce/marcas/update/id/<?= $marca->id_marca ?>">
+                            <span class="glyphicon glyphicon-pencil" title="Excluir registro"></span> </a></td>
+
+                    <td> <a href="/ecommerce/marcas/delete/id/<?= $marca->id_marca ?>">
+                            <span class="glyphicon glyphicon-trash" title="Editar registro"></span> </a></td>
+
+                </tr>
+
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+<?php
+echo $this->paginationControl(
+        $marcas, 'sliding', 'partial/paginator.phtml', array(
+    'route' => 'marcas'
+        )
+);
+?>
