@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="Admin Test Suite" tests="2" assertions="4" failures="0" errors="0" time="0.954855">
-    <testsuite name="Admin\Entity\AutenticacaoTest" file="/home/cezar/workspace/php/skell_example/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" tests="2" assertions="4" failures="0" errors="0" time="0.954855">
-      <testcase name="testInsert" class="Admin\Entity\AutenticacaoTest" file="/home/cezar/workspace/php/skell_example/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" line="13" assertions="3" time="0.549313"/>
-      <testcase name="testInsertInvalid" class="Admin\Entity\AutenticacaoTest" file="/home/cezar/workspace/php/skell_example/module/Admin/tests/src/Admin/Entity/AutenticacaoTest.php" line="29" assertions="1" time="0.405542"/>
-    </testsuite>
-  </testsuite>
-</testsuites>
